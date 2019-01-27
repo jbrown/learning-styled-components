@@ -15,10 +15,19 @@ const Button = styled.button`
   font-size: 2rem;
   background: ${({ type }) => (type === 'cancel' ? 'tomato' : 'indigo')};
 `
+
+const AppWrapper = styled.div`
+  header {
+    background: teal;
+    &:hover {
+      background: red;
+    }
+  }
+`
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <AppWrapper>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Heading>
@@ -36,7 +45,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-      </div>
+      </AppWrapper>
     );
   }
 }
