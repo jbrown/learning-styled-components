@@ -3,25 +3,41 @@ import styled from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
 
+const Fake = ({ className }) => (
+  <div className={className}>
+    <h2>I'm a fake component</h2>
+  </div>
+);
+
 const Heading = styled.h1`
   font-size: 2rem;
 `
 
 const Button = styled.button`
-  padding: 5px 10px;
+  padding: 5px 20px;
   border-radius: 4px;
   border: none;
   color: white;
   font-size: 2rem;
-  background: ${({ type }) => (type === 'cancel' ? 'tomato' : 'indigo')};
+  background: indigo;
+`
+
+const CancelButton = styled(Button)`
+  background: tomato;
 `
 
 const AppWrapper = styled.div`
   header {
     background: teal;
-    &:hover {
-      background: red;
-    }
+  }
+  ${Button} {
+    margin-bottom: 2rem;
+  }
+`
+
+const DoubleFake = styled(Fake)`
+  h2 {
+    color: red;
   }
 `
 class App extends Component {
@@ -33,8 +49,10 @@ class App extends Component {
           <Heading>
             Edit <code>src/App.js</code> and save to reload.
           </Heading>
+          <DoubleFake />
+          <Fake />
           <Button>Save</Button>
-          <Button type="cancel">Cancel</Button>
+          <CancelButton>Cancel</CancelButton>
           <Heading>Heading two</Heading>
           <a
             className="App-link"
